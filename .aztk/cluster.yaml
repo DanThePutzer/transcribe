@@ -1,0 +1,67 @@
+##  cluster settings
+
+# id: <id of the cluster to be created, recommended to specify with --id command line parameter>
+
+# Toolkit configuration [Required] You can use `aztk toolkit` command to find which toolkits are available
+toolkit:
+  software: spark
+  version: 2.3.0
+  # Which environment is needed for spark anaconda, r, miniconda
+  environment: 
+
+  # Optional version for the environment
+  # environment_version:
+
+  # Optional docker repository(To bring your custom docker image. Just specify the Toolkit software, version and environment if using default images)
+  # docker_repo: <name of docker image repo (for more information, see https://github.com/Azure/aztk/blob/master/docs/12-docker-image.md)>
+
+  # Optional command line options to pass to `docker run`
+  # docker_run_options: <additional command line options to pass to `docker run` (for more information, see https://github.com/Azure/aztk/blob/master/docs/12-docker-image.md)>
+
+# vm_size: <vm-size, see available options here: https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/>
+vm_size: standard_f2
+
+# size: <number of dedicated nodes in the cluster, not that clusters must contain all dedicated or all low priority nodes>
+size: 2
+
+# size_low_priority: <number of low priority nodes in the cluster, mutually exclusive with size setting>
+
+
+# username: <username for the linux user to be created> (optional)
+username: spark
+
+# To add your cluster to a virtual network provide the full arm resource id below
+# subnet_id: /subscriptions/********-****-****-****-************/resourceGroups/********/providers/Microsoft.Network/virtualNetworks/*******/subnets/******
+
+# Enable plugins
+plugins:
+  # - name: jupyterlab
+  # - name: jupyter
+  # - name: hdfs
+  # - name: rstudio_server
+  # - name: spark_ui_proxy
+  # - name: tensorflow_on_spark
+  # - name: openblas
+  # - name: nvblas
+  # - name: apt_get
+  #   args:
+  #     packages:
+  #       - 'vim'
+  #       - 'htop'
+  # - name: pip_install
+  #   args:
+  #     packages:
+  #       - 'numpy==1.14.2'
+  #       - 'requests'
+  # - name: conda_install
+  #   args:
+  #     packages:
+  #       - 'numpy=1.14.2'
+  #       - 'requests'
+
+# Allow master node to also be a worker <true/false> (Default: true)
+# worker_on_master: true
+
+
+# wait: <true/false>
+wait: false

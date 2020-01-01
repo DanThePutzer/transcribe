@@ -1,0 +1,3 @@
+export AZURE_STORAGE_ACCOUNT=transcribestorage
+export AZURE_STORAGE_KEY=bDLZf2LvJaveFZ6qJV+6g/72Uas2jswaM2D/h7fGWb/NU9eldDr98ffiHJns0xVpm5Ox5g7KqBIBJuZ2e5Vn0Q==
+export HADOOP_OPTIONAL_TOOLS="hadoop-azure,hadoop-azure-datalake"
