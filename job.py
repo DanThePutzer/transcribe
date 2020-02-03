@@ -44,16 +44,6 @@ def main_fun(args, ctx):
 			if len(batch) > 0:
 				example = batch[0]
 
-				# print('- - - - -')
-				# print('- - - - -')
-				# print('- - - - -')
-				# print('- - - - -')
-				# print(example[1])
-				# print('- - - - -')
-				# print('- - - - -')
-				# print('- - - - -')
-				# print('- - - - -')
-
 				# Splitting into X and y
 				X = np.array(example[1]).astype(np.float32)
 				y = np.array(example[0])
@@ -87,12 +77,12 @@ def main_fun(args, ctx):
 		multiWorkerModel = buildAndCompileModel()
 
 	# Defining Training Parameters
-	stepsPerEpoch = 60000 / 4
+	stepsPerEpoch = 600 / 1
 	stepsPerWorker = stepsPerEpoch / 1
 	maxStepsPerWorker = stepsPerWorker * 0.9
 
 	# Fitting Model
-	multiWorkerModel.fit(x = ds, epochs = 2, steps_per_epoch = maxStepsPerWorker)
+	multiWorkerModel.fit(x = ds, epochs = 2, steps_per_epoch = stepsPerWorker)
 
 	from tensorflow_estimator.python.estimator.export import export_lib
 	exportDir = export_lib.get_timestamped_export_dir(args.export_dir)
@@ -184,4 +174,8 @@ if __name__ == '__main__':
 
 	cluster.train(transformedAudio, args.epochs)
 	cluster.shutdown()
+
+
+
+	# Fix end of sequence thing (Only 30 samples wtf?)
 
