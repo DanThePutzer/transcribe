@@ -2,3 +2,5 @@ data/*
 Old/data/*
 
 *.npy
+
+PrivateLocal.ipynb
